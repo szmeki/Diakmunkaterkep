@@ -45,13 +45,12 @@ export default function App() {
 
   useEffect(() => {
     var results=[];
-    var helpTerm
+    var helpTerm;
     if(!categoryTerm2.includes("")){
     for(var i=0;i<categoryTerm2.length;++i){
     helpTerm=categoryTerm2[i];
     const help=data.filter(job =>
       job.Pozíció.toLowerCase().includes(searchTerm.toLowerCase())&&job.Kategória.includes(helpTerm));
-    results=help;
     }
     }
     else{results=data;}
