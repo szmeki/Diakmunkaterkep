@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Diakmunkaterkep/static/css/main.d0edddaa.chunk.css",
+    "main.js": "/Diakmunkaterkep/static/js/main.13d2cb2c.chunk.js",
+    "main.js.map": "/Diakmunkaterkep/static/js/main.13d2cb2c.chunk.js.map",
+    "runtime-main.js": "/Diakmunkaterkep/static/js/runtime-main.a9072d90.js",
+    "runtime-main.js.map": "/Diakmunkaterkep/static/js/runtime-main.a9072d90.js.map",
+    "static/js/2.640d7a55.chunk.js": "/Diakmunkaterkep/static/js/2.640d7a55.chunk.js",
+    "static/js/2.640d7a55.chunk.js.map": "/Diakmunkaterkep/static/js/2.640d7a55.chunk.js.map",
+    "static/js/3.b7684350.chunk.js": "/Diakmunkaterkep/static/js/3.b7684350.chunk.js",
+    "static/js/3.b7684350.chunk.js.map": "/Diakmunkaterkep/static/js/3.b7684350.chunk.js.map",
+    "index.html": "/Diakmunkaterkep/index.html",
+    "static/css/main.d0edddaa.chunk.css.map": "/Diakmunkaterkep/static/css/main.d0edddaa.chunk.css.map",
+    "static/js/2.640d7a55.chunk.js.LICENSE.txt": "/Diakmunkaterkep/static/js/2.640d7a55.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Diakmunkaterkep/static/media/bg2.05b26e92.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a9072d90.js",
+    "static/js/2.640d7a55.chunk.js",
+    "static/css/main.d0edddaa.chunk.css",
+    "static/js/main.13d2cb2c.chunk.js"
+  ]
+}
