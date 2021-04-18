@@ -1,31 +1,26 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
 import Tabletop from "tabletop";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import Navbar from './components/Navbar';
 import ReactPaginate from 'react-paginate';
 import './App.css';
 import Searchbox from "./components/Searchbox";
+import Component from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import About from './components/About';
+import Home from './components/Home';
+import Contact from './components/Contact';
+import LoadingScreen from "./components/LoadingScreen"
+
+
 
 export default function App() {
   const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [categoryTerm, setCategoryTerm] = useState('');
-  const [categoryTerm2, setCategoryTerm2] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [perPage] = useState(5);
-  const [pageCount, setPageCount] = useState(0);
-  const [offset, setOffset] = useState(0);
+  const [loading,setLoading]=useState(true);
 
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2800)
+  }, [])
 
-  const handleChange = event => {
-    event.preventDefault();
-    setSearchTerm(event.target.value);
-  };
-
-  const handlePageClick = (e) => {
-    const selectedPage = e.selected;
-    setOffset(selectedPage)
-};
-  
   useLayoutEffect(() => {
     Tabletop.init({
       key: "1XM0JY9oGbkcpoBh076tLCVXkIXptJP6ITqTDkLqxmx4",
@@ -35,85 +30,15 @@ export default function App() {
       .catch((err) => console.warn(err));   
   },[]);
 
-  useEffect(() => {
-    const results=data.filter(job =>
-      job.Pozíció.toLowerCase().includes(searchTerm.toLowerCase())&&job.Kategória.includes(categoryTerm)
-    );
-    setPageCount(Math.ceil(results.length / perPage));
-    setSearchResults(results.slice(offset * perPage, (offset * perPage) + perPage));
-  },[searchTerm,data,categoryTerm,offset]);
-
-  useEffect(() => {
-    var results=[];
-    var helpTerm;
-    if(!categoryTerm2.includes("")){
-    for(var i=0;i<categoryTerm2.length;++i){
-    helpTerm=categoryTerm2[i];
-    const help=data.filter(job =>
-      job.Pozíció.toLowerCase().includes(searchTerm.toLowerCase())&&job.Kategória.includes(helpTerm));
-    }
-    }
-    else{results=data;}
-    console.log(results);
-    setPageCount(Math.ceil(results.length / perPage));
-    setSearchResults(results.slice(offset * perPage, (offset * perPage) + perPage));
-  },[categoryTerm2]);
-
     return (
-      
-      <div className="App">
-        <Navbar onChange={value => setCategoryTerm(value)}/>
-          <div class="search-container">
-            <input
-              class="search-input"
-              type="text"
-              placeholder="Keresés"
-              value={searchTerm}
-              onChange={handleChange}
-            />
-          </div>
-         <Searchbox onChange={value => setCategoryTerm2(value)}/>
-         <div id="book-details">
-          {
-            searchResults.map(obj => {
-              return (
-                     <div class="jobs-list" key={obj.ID}>
-                        <h1>{obj.Pozíció}</h1>
-                        <div class="jobs-container">
-                          <div class="jobs-description">
-                            <b>{obj.Leírás}</b>
-                          </div>
-                          <div class="jobs-wotktime">
-                            <p>{obj.Hetimunkaidő}</p>
-                          </div>
-                          <div class="jobs-salary">
-                            <p>{obj.Fizetés}</p>
-                          </div>
-                          <div class="jobs-places">
-                            <p>{obj.Hely}</p>
-                          </div>
-                          <button class="btn">
-                            <span class="btn-text"><a href = {obj.URL} >Érdekel</a></span>
-                          </button>
-                        </div>
-                      </div>
-             )
-            })
-          }
-        </div>
-        <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
-      </div>
-
+      <>
+      <main>
+        <Switch>
+          <Route path='/Diakmunkaterkep' exact render={(props) => <Home data={data} loading={loading}/>}/>
+          <Route path='/rolam' component={About} />
+          <Route path='/kapcsolat' component={Contact} />
+        </Switch>
+      </main>
+      </>
     );
 }

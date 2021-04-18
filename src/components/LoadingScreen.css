@@ -1,0 +1,18 @@
+.loading{
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.logo{
+    background: url(./szovegnelkul_logo.svg);
+    background-repeat: no-repeat;
+    padding-right: 25vw;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+}

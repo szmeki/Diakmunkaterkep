@@ -1,0 +1,224 @@
+.contact{
+  height: 100vh;
+  width: 100vw;
+}
+
+.contact::after {
+  content: "";
+  border-radius: 30rem;
+  background-image: url('./_MKP0236-min.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;   
+}
+
+
+.form{
+    position: absolute;
+    text-align: center;
+    top:15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    padding: 4vh;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 5%;
+}
+
+.form > h2{
+  margin: 0 0 0 0;
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+.form > p{
+  font-size: 2rem;
+  color: #EE771A;
+  text-align: center;
+}
+.form .user-box{
+    position: relative;
+}
+
+.form .form-text{
+  height: 30%;
+  padding-bottom: 7%;
+  position: relative;
+}
+
+.form-text textarea{
+  outline: none;
+  resize: none;
+  background: transparent;
+  border: 0.1rem solid #fff;
+  width: 80%;
+  height: 4rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.form .form-text label{
+  position: absolute;
+  pointer-events: none;
+  left: 4.5vw;
+  top: 0vh;
+  padding: 1vh 0;
+  font-size: 2rem;
+  color: #fff;
+  transition: 0.7s;
+
+}
+
+.form .form-text textarea:focus ~ label,
+.form .form-text textarea:valid ~ label{
+  left: 4vw;
+  top: -6vh;
+  font-size: 2rem;
+  color: #EE771A;
+}
+
+
+.form .user-box input{
+  width: 80%;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 7vh;
+  border: none;
+  border-bottom: 0.1rem solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.form .user-box label{
+    position: absolute;
+    pointer-events: none;
+    top: -1vh;
+    left: 4.5vw;
+    padding: 2vh 0;
+    font-size: 2rem;
+    color: #fff;
+    transition: .5s;
+}
+
+.form .user-box input:focus ~ label,
+.form .user-box input:valid ~ label{
+   top: -5vh;
+  left: 4vw;
+  color: #EE771A;
+  font-size: 1.5rem;
+}
+
+.form form .send_btn {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1.5vh 1.5vw;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #EE771A;
+  font-size: 2.5rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: -2vh;
+  letter-spacing: 0.1rem;
+}
+
+.form .send_btn:hover {
+  background: #EE771A;
+  color: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem #EE771A,
+              0 0 1.3rem #EE771A,
+              0 0 2.3rem #EE771a,
+              0 0 4.3rem #EE771A;
+cursor: pointer;
+}
+
+
+.footer {
+ padding-top: 97vh;
+ padding-right: 1vw;
+ font-size: 1rem;
+ text-align: right;
+
+}
+
+.footer a:link{
+  text-decoration: none;
+  color:#EE771A;
+}
+
+.footer a:visited{
+  text-decoration: none;
+  color:#EE771A;
+}
+
+@media only screen and (max-width: 768px) {
+  .form{
+    position: absolute;
+    text-align: center;
+    top:25%;
+    left: 15%;
+    width: 70%;
+    height: 50%;
+    padding: 4vh;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 5%;
+}
+  .form .user-box input:focus ~ label{
+   display: none;
+ }
+ .form .form-text textarea:focus ~ label{
+  display: none;
+}
+.form .form-text label{
+  font-size: 1.5rem;
+}
+.form .user-box label{
+  font-size: 1.5rem;
+}
+
+.form h2{
+  font-size: 2rem;
+}
+.form .form-text textarea{
+  margin-top: 3%;
+}
+.form form .send_btn {
+  position: relative;
+  display: inline-block;
+  padding: 1.5vh 1.5vw;
+  border-radius: 1.5rem;
+  background: #EE771A;
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: -2vh;
+  letter-spacing: 0.1rem;
+}
+
+.form .send_btn:hover {
+  transform: scale(1.1);
+}
+.form > p{
+  display: none;
+}
+}
