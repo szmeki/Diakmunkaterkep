@@ -1,15 +1,21 @@
 
+@media screen and (max-width: 1000px) {
 .search-box{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     text-align: center;
-}
+}}
+@media screen and (min-width: 1001px) {
+    .search-box{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+}}
 
 .place-container{
     margin: auto;
-    width: 10rem;
-    font-size: 1rem;
+    width: calc((5rem + 7vmin));
+    font-size: 0.75rem;
     border-radius: 3rem;
     background: #4bc5f993;
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
@@ -19,8 +25,8 @@
 
 .category-container{
     margin: auto;
-    width: 10rem;
-    font-size: 1.1rem;
+    width: calc((5rem + 7vmin));
+    font-size: 0.75rem;
     border-radius: 3rem;
     background: #ee761a86;
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.2);
@@ -33,7 +39,7 @@
 .search-links{
     background: inherit;
 	border: none;
-    width: 10rem;
+    width: calc((5rem + 7vmin));
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -43,14 +49,14 @@
     align-items: center;
     text-decoration: none;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .search-links-picked{
-    font-size: 1.3rem;
     background: #fff;
+    font-size: calc((0.6rem + 0.6vmin));
     border: none;
-    width: 10rem;
+    width: calc((5rem + 7vmin));
     border-radius: 3rem;
     margin-left: auto;
     margin-right: auto;
@@ -60,12 +66,12 @@
     align-items: center;
     text-decoration: none;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .search-links:hover{
     transform: scale(1.1);
-    width: 10rem;
+    width: calc((5rem + 7vmin));
     background-color: #fff;
     border-radius: 3rem;
     transition: all 0.2s ease-out;
@@ -73,7 +79,7 @@
 
 .search-links-picked:hover{
     transform: scale(1.1);
-    width: 10rem;
+    width: calc((4rem + 7vmin));
     background-color: #fff;
     border-radius: 3rem;
     transition: all 0.2s ease-out;

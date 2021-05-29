@@ -1,15 +1,11 @@
 import Tabletop from "tabletop";
 import React, { useEffect, useState, useLayoutEffect } from "react";
-import Navbar from './components/Navbar';
-import ReactPaginate from 'react-paginate';
 import './App.css';
-import Searchbox from "./components/Searchbox";
-import Component from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
-import LoadingScreen from "./components/LoadingScreen"
+import Notfound from './components/Notfound';
 
 
 
@@ -23,21 +19,26 @@ export default function App() {
 
   useLayoutEffect(() => {
     Tabletop.init({
-      key: "1XM0JY9oGbkcpoBh076tLCVXkIXptJP6ITqTDkLqxmx4",
+      key: "1-HTQaqZcVIakBDn2he2hwR-xISyfwjXgLE6KyIBEahA",
       simpleSheet: true
     })
       .then((data) => setData(data))
-      .catch((err) => console.warn(err));   
+      .catch((err) => console.warn(err));
   },[]);
 
     return (
       <>
       <main>
-        <Switch>
+        {data.length>0 || loading?
+        (<Switch>
+          <Redirect from="/reload" to="/" />
+          <Route path='/' exact render={(props) => <Home data={data} loading={loading}/>}/>
           <Route path='/Diakmunkaterkep' exact render={(props) => <Home data={data} loading={loading}/>}/>
           <Route path='/rolam' component={About} />
           <Route path='/kapcsolat' component={Contact} />
-        </Switch>
+          <Route path='*' component={Notfound} />
+        </Switch>):
+          (<Route component={Notfound} />)}
       </main>
       </>
     );

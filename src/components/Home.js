@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
-import Tabletop from "tabletop";
+import React, { useEffect, useState } from "react";
 import ReactPaginate from 'react-paginate';
 import './Home.css';
 import Searchbox from "./Searchbox";
 import LoadingScreen from "./LoadingScreen"
 import Navbar from "./Navbar"
+import Searchbar from "./Searchbar"
 import szovegnelkul_logo from "./szovegnelkul_logo.svg"
 
 
@@ -12,6 +12,7 @@ import szovegnelkul_logo from "./szovegnelkul_logo.svg"
 export default function Home(props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryTerm, setCategoryTerm] = useState('');
+  const [placeTerm, setPlaceTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0);
@@ -32,12 +33,12 @@ export default function Home(props) {
   useEffect(() => {
     console.log(props.data);
     const results=props.data.filter(job =>
-      job.Pozíció.toLowerCase().includes(searchTerm.toLowerCase())&&job.Kategória.includes(categoryTerm)
+      job.Pozíció.toLowerCase().includes(searchTerm.toLowerCase())&&job.Kategória.includes(categoryTerm)&&job.Hely.includes(placeTerm)
     );
     setPageCount(Math.ceil(results.length / perPage));
     setForcePageCount(offset);
     setSearchResults(results.slice(offset * perPage, (offset * perPage) + perPage));
-  },[searchTerm,categoryTerm,offset,props.data]);
+  },[perPage,searchTerm,categoryTerm,placeTerm,offset,props.data]);
 
   
     return (
@@ -47,65 +48,58 @@ export default function Home(props) {
       <Navbar value={1} />
       <div className="body-container">
         <div className="home-title">
-          <img src={szovegnelkul_logo} className="home-logo"/><h1>Diákmunkatérkép</h1>
+          <img alt="logo" src={szovegnelkul_logo} className="home-logo"/><h1>Diákmunkatérkép</h1>
         </div>
-         <div className="search-container">
-            <input
-              class="search-input"
-              type="text"
-              placeholder="Keresés"
-              value={searchTerm}
-              onChange={handleChange}
-            />
-          </div>
+        <Searchbar searchTerm={searchTerm} onChange={value =>handleChange(value)} />
           <div className="filter-picker">         
-          <Searchbox onChange={function(value){setCategoryTerm(value); setForcePageCount(0); setOffset(0);}}/>
+          <Searchbox onChange={function(value){setCategoryTerm(value); setForcePageCount(0); setOffset(0);}}
+          onClick={function(value){setPlaceTerm(value); setForcePageCount(0); setOffset(0);}}/>
           </div>
-         <div class="jobs">
-         <div class="jobs-list-left">{
+         <div className="jobs">
+         <div className="jobs-list-left">{
             searchResults.slice(0,perPage/2).map(obj => {
               return (
-                     <div class="jobs-wrapper" key={obj.ID}>
-                        <h1>{obj.Pozíció}</h1>                          
-                          <div class="jobs-description">
+                     <div className="jobs-wrapper" key={obj.ID}>
+                        <h1>{obj.Pozíció.length>42?obj.Pozíció.slice(0,42)+"...":obj.Pozíció}</h1>                          
+                          <div className="jobs-description">
                             <b>{obj.Leírás.slice(0,100)+"..."}</b>
                           </div>
-                          <div class="jobs-worktime">
-                            <p>{obj.Hetimunkaidő}</p>
+                          <div className="jobs-worktime">
+                            <p>{obj.Munkaidő}</p>
                           </div>
-                          <div class="jobs-salary">
+                          <div className="jobs-salary">
                             <p>{obj.Fizetés}</p>
                           </div>
-                          <div class="jobs-places">
+                          <div className="jobs-places">
                             <p>{obj.Hely}</p>
                           </div>
-                          <button class="btn">
-                            <span class="btn-text"><a href = {obj.URL} >Érdekel</a></span>
+                          <button className="btn">
+                            <span className="btn-text"><a href = {obj.URL} target="_blank" rel="noreferrer">Érdekel</a></span>
                           </button>
                       </div>
              )
             })
           }
         </div>
-        <div class="jobs-list-right">{
+        <div className="jobs-list-right">{
             searchResults.slice(perPage/2,perPage).map(obj => {
               return (
-                     <div class="jobs-wrapper" key={obj.ID}>
-                        <h1>{obj.Pozíció}</h1>
-                          <div class="jobs-description">
+                     <div className="jobs-wrapper" key={obj.ID}>
+                        <h1>{obj.Pozíció.length>42?obj.Pozíció.slice(0,42)+"...":obj.Pozíció}</h1>
+                          <div className="jobs-description">
                             <b>{obj.Leírás.slice(0,100)+"..."}</b>
                           </div>
-                          <div class="jobs-worktime">
-                            <p>{obj.Hetimunkaidő}</p>
+                          <div className="jobs-worktime">
+                            <p>{obj.Munkaidő}</p>
                           </div>
-                          <div class="jobs-salary">
+                          <div className="jobs-salary">
                             <p>{obj.Fizetés}</p>
                           </div>
-                          <div class="jobs-places">
+                          <div className="jobs-places">
                             <p>{obj.Hely}</p>
                           </div>
-                          <button class="btn">
-                            <span class="btn-text"><a href = {obj.URL} >Érdekel</a></span>
+                          <button className="btn">
+                            <span className="btn-text"><a href = {obj.URL} target="_blank" rel="noreferrer">Érdekel</a></span>
                           </button>
                         </div>
              )

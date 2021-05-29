@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 import Navbar from "./Navbar"
 import emailjs from 'emailjs-com';
@@ -6,12 +6,13 @@ import emailjs from 'emailjs-com';
 
 export default function About(props) {
 
+  const [open, setOpen] = useState(false);
+
   function sendEmail(e) {
     e.preventDefault();
-
     emailjs.sendForm('gmail', 'template_1', e.target, 'user_MKPjjgD2nisTzyWUsmrmJ')
       .then((result) => {
-          window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+          setOpen(true);
       }, (error) => {
           console.log(error.text);
       });
@@ -24,7 +25,8 @@ export default function About(props) {
         <div className="form">
             <h2>Kérdésed van?</h2>
             <p>Keress bátran!</p>
-            <form onSubmit={sendEmail}>
+            {!open ?
+            (<form onSubmit={sendEmail}>
                 <input type="hidden" name="contact_number" />
                 <div className="form-text">
                     <textarea name="html_message" required/>
@@ -41,7 +43,13 @@ export default function About(props) {
                 <div>
                     <input class="send_btn" type="submit" value="Küldés"/>
                 </div>
-            </form>
+            </form>) :
+              (<div>
+                  <h1>Az emailed-et sikeresen megkaptam, igyekszem minnél hamarabb válaszolni.</h1>
+              </div>
+                
+            )}
+
       </div>
       <div class="footer">
         <a href="https://www.qdiak.hu">Powered by Quantum</a>

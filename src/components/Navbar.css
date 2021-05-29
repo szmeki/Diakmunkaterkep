@@ -3,13 +3,14 @@
   src: url(Montserrat-Bold.ttf);
 }
 
+
 .navbar{
   position: fixed;
   z-index: 1;
-  top: 2rem;
-  right: 2rem;
-  width: 6rem;
-  height: 6rem;
+  top: calc((0.94vw + 1.88vh));
+  right: calc((0.975vw + 1.95vh));
+  width: calc((2.5vw + 5vh));
+  height: calc((2.5vw + 5vh));
   border-radius: 5rem;
   background: #ee771a;
   box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
@@ -20,19 +21,18 @@
 .nav-trigger{
   position: fixed;
   z-index: 2;
-  top: 3.5rem;
-  right: 3.75rem;
+  top: calc((1.15vw + 2.3vh));
+  right: calc((1.7vw + 3.4vh));
   cursor: pointer;
 }
 
 .fa-times{
-  right:6rem;
   color: #000;
 }
 
 .nav-trigger i{
   color: #fff;
-  font-size: 3rem;
+  font-size: calc((1.2vw + 2.4vh));
 }
 
 .menu-items{
@@ -43,10 +43,10 @@
 .nav-open{
   position: fixed;
   z-index: 1;
-  top: 2rem;
-  right: 2rem;
-  width: 6rem;
-  height: 22rem;
+  top: 2vw;
+  right: 2vw;
+  width: calc((2.5vw + 5vh));
+  height: 19vw;
   border-radius: 5rem;
   background: #ee771a;
   box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
@@ -57,19 +57,19 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  top: 8rem;
-  right: 8.5rem;
+  top: 7vw;
+  right: 7.5vw;
   text-align: right;
 }
 
 .menu-open li{
-  font-size: 1.5rem;
-  padding-bottom: 5rem;
+  font-size: 1.3vw;
+  padding-bottom: 4.7vw;
   cursor: pointer;
 }
 
 .menu-open li:hover{
-  padding-bottom: 3.2rem;
+  padding-bottom: 3.15vw;
 }
 
 .menu-open li:hover i{
@@ -93,13 +93,13 @@
 .menu-open li i{
   position: fixed;
   color: #fff;
-  font-size: 2.1rem;
-  right: 4.1rem;
+  font-size: 1.8vw;
+  right: 3.7vw;
   animation: scaleIn 0.25s;
 }
 
 .active-menu-icon{
-  padding-left: 0.75rem;
+  padding-left: 0.55vw;
   border-left: 0.4rem solid #4BC4F9;
 }
 

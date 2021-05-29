@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './About.css';
 import Navbar from "./Navbar"
 import dsc_1 from './dsc_1.png';
@@ -18,7 +18,7 @@ export default function About(props) {
         <h1 class="title">Diákmunkatérkép</h1>
         <p>Nehéz és a fárasztó a munkakeresés? Találd meg álmaid munkáját pár másodperc alatt.</p>
         <div class="main-btn">
-            <Link to="/Diakmunkaterkep">
+            <Link to="/">
                 <button class="btn-slide">
                     <span class="slide-btn-text">Érdekel</span>
                 </button>
@@ -31,22 +31,22 @@ export default function About(props) {
                 <h2>Spórolj időt, és könnyítsd meg az életed</h2>
                 <p>Az oldalamon kigyújtöttem az összes fellelhető iskolaszövetkezet munkalehetőségeit, így nem kell órákig böngészned a különböző oldalakon.</p>
                 <div class="left1-btn">
-                    <Link to="/Diakmunkaterkep">
+                    <Link to="/">
                         <button class="btn-slide">
                             <span class="slide-btn-text">Munkák</span>
                         </button>
                     </Link>
                 </div>
             </div>
-            <img src={dsc_1}/>
+            <img src={dsc_1} alt=""/>
         </div>
         <div class="right-benefits">
-        <img src={dsc_4}/>
+        <img src={dsc_4} alt=""/>
             <div class="text-container">
                 <h2>Napi frissülés, hogy ne maradj le semmiről</h2>
                 <p>A kialakított automatizmusnak hála, mindennap az éppen aktuális munkák találhatók meg az odalon.</p>
                 <div class="right1-btn">
-                    <Link to="/Diakmunkaterkep">
+                    <Link to="/">
                         <button class="btn-slide">
                             <span class="slide-btn-text">Munkák</span>
                         </button>
@@ -59,22 +59,22 @@ export default function About(props) {
                 <h2>Reklámoktól mentes, folyamatosan ellenőrzött oldal</h2>
                 <p>A kigyűjtött munkákat az adminisztrátor folyamatosa ellenőrzi, hogy csak valós adatok szerepeljenek.</p>
                 <div class="left2-btn">
-                <   Link to="/Diakmunkaterkep">
+                <   Link to="/">
                         <button class="btn-slide">
                             <span class="slide-btn-text">Munkák</span>
                         </button>
                     </Link>
                 </div>
             </div>
-            <img src={dsc_2}/>
+            <img src={dsc_2} alt=""/>
         </div>
         <div class="right-benefits">
-        <img src={dsc_3}/>
+        <img src={dsc_3} alt=""/>
             <div class="text-container">
                 <h2>Egyedi kereső funkciók, mert minden perced számít</h2>
                 <p>A különböző keresési opcióknak hála tényleg pillanatok alatt megtalálhatod amit keresel.</p>
                 <div class="right2-btn">
-                    <Link to="/Diakmunkaterkep">
+                    <Link to="/">
                         <button class="btn-slide">
                             <span class="slide-btn-text">Munkák</span>
                         </button>
@@ -98,7 +98,7 @@ export default function About(props) {
                     <li><div>Reklámoktól mentes környezet</div></li>
                 </div>
             </ol>
-            <Link to="/Diakmunkaterkep">
+            <Link to="/">
                 <button class="btn-slide">
                     <span class="slide-btn-text">Munkák</span>
                 </button>
